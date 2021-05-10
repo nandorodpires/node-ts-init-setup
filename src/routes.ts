@@ -1,7 +1,9 @@
 import { Router } from 'express';
 
+import IndexController from './controllers/IndexController';
+
 const routes = Router();
 
-routes.get('/', (req, res) => res.json({ message: 'API is running... ' }));
+routes.get('/', IndexController.index);
 
 export default routes;
