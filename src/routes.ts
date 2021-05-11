@@ -1,9 +1,9 @@
-import { Router } from 'express';
+import { Router } from 'express'
 
-import IndexController from './controllers/IndexController';
+const routes = Router()
 
-const routes = Router();
+routes.get('/', () => {
+    return { message: 'Hello World' }
+})
 
-routes.get('/', IndexController.index);
-
-export default routes;
+export default routes
