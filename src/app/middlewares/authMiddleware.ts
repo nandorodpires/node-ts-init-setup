@@ -11,7 +11,7 @@ export default function authMiddleware(request: Request, response: Response, nex
     const { authorization } = request.headers
 
     if (!authorization) {
-        return response.status(400).json({ message: '' })
+        return response.status(400).json({ message: 'No token send!' })
     }
 
     const token = authorization.replace('Bearer', '').trim()
@@ -20,9 +20,9 @@ export default function authMiddleware(request: Request, response: Response, nex
         const data = jwt.verify(token, process.env.API_SECRET)
         const { id } = data as TokenPayload
         request.userId = id
+        return next()
     } catch (error) {
-
+        const { code, message } = error
+        return response.status(401).json({ code, message })
     }
-
-    return next()
 }

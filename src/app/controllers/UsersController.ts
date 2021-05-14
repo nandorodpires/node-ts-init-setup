@@ -3,6 +3,17 @@ import { getRepository } from 'typeorm'
 import User from '../models/User'
 
 class UsersController {
+    async profile(request: Request, response: Response): Promise<Response> {
+        const repository = getRepository(User)
+        try {
+            const user = await repository.find(request.userId)
+            return response.json(user)
+        } catch (error) {
+            const { code, message } = error
+            return response.status(400).json({ code, message })
+        }
+    }
+
     async store(request: Request, response: Response): Promise<Response> {
         try {
             const repository = getRepository(User)
