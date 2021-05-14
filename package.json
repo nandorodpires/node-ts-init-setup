@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only --no-notify --ignore-watch node_modules src/server.ts",
+    "dev": "ts-node-dev --files --respawn --transpile-only --no-notify --ignore-watch node_modules src/server.ts",
     "lint": "eslint . --ext .ts,.js",
     "typeorm": "npx ts-node ./node_modules/typeorm/cli.js"
   },
