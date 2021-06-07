@@ -34,6 +34,10 @@ class UsersController {
             return response.status(400).json({ code, message })
         }
     }
+
+    async delete(request: Request, response: Response) {
+        return response.json({ message: 'Delete user endpoint' })
+    }
 }
 
 export default new UsersController()
