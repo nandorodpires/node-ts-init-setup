@@ -12,6 +12,7 @@ routes.get('/', () => {
 })
 
 routes.post('/auth', AuthController.authenticate)
+routes.post('/auth/forgot', AuthController.forgot)
 routes.get('/users/profile', authMiddleware, UsersController.profile)
 routes.post('/users', UsersController.store)
 

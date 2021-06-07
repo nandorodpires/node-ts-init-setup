@@ -35,6 +35,10 @@ class AuthController {
             return response.status(400).json({ code, message })
         }
     }
+
+    async forgot(request: Request, response: Response) {
+        return response.json({ message: 'Endpoint to forgot de password!' })
+    }
 }
 
 export default new AuthController()
